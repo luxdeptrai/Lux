@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Thành Hoàng Ngô 🖕</title>
+  <style>
+    body {
+      margin: 0;
+      background: black;
+      color: white;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 3em;
+      color: #ff0055;
+      text-shadow: 2px 2px 8px #ff00cc;
+    }
+
+    .icon {
+      font-size: 3em;
+      position: absolute;
+      animation: fall 5s linear infinite;
+    }
+
+    @keyframes fall {
+      0% {
+        top: -50px;
+        left: calc(100vw * var(--x));
+        opacity: 1;
+      }
+      100% {
+        top: 110vh;
+        left: calc(100vw * var(--x));
+        opacity: 0;
+      }
+    }
+
+    button {
+      padding: 15px 25px;
+      font-size: 1.2em;
+      background-color: #ff0055;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-top: 30px;
+      box-shadow: 0 0 15px #ff00cc;
+    }
+
+    button:hover {
+      background-color: #ff3377;
+    }
+  </style>
+</head>
+<body>
+  <h1>Thành Hoàng Ngô</h1>
+  <button onclick="troll()">Bấm vào đây nè</button>
+
+  <script>
+    // Rơi ngón giữa
+    function createMiddleFinger() {
+      const icon = document.createElement("div");
+      icon.classList.add("icon");
+      icon.style.setProperty('--x', Math.random());
+      icon.textContent = "🖕";
+      document.body.appendChild(icon);
+      setTimeout(() => icon.remove(), 6000);
+    }
+
+    setInterval(createMiddleFinger, 300);
+
+    // Âm thanh troll
+    const audio = new Audio("https://www.myinstants.com/media/sounds/trololo.mp3");
+
+    function troll() {
+      alert("Gì nhìn? 🖕");
+      audio.play();
+    }
+  </script>
+</body>
+</html>
